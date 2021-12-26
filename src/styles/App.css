@@ -1,0 +1,144 @@
+div {
+  width: 100vw;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+.primary-nav {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0;
+  float: right;
+  text-align: left;
+  background: rgba(40, 40, 40, 0.9);
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+@supports (backdrop-filter: blur(1.5rem)) {
+  .primary-nav {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(1.5rem);
+  }
+}
+
+#nav a {
+  font-weight: bold;
+  color: rgba(255, 0, 255, 1);
+  text-decoration: none;
+  padding: 15px 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 18px;
+  /* overflow: hidden; */
+  transition: 0.3s;
+}
+@media (min-width: 35em) {
+  .primary-nav{
+    padding: 1rem;
+    margin-top: -0.5rem;
+    border-radius: 15px 0px 0px 15px;
+  }
+}
+
+@media (max-width: 35em) {
+  .primary-nav {
+    --gap: 2em;
+    position: fixed;
+    inset: 0 0 0 40%;
+    flex-direction: column;
+    padding: min(20vh, 10rem) 1em;
+  }
+  #nav a {
+    padding: 0;
+    box-sizing: content-box;
+    width: 100%;
+    padding: 15px 0px;
+    text-indent: 1em;  
+  }
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 15px;
+    z-index: 10;
+    border: 0;
+  }
+  .mobile-nav-toggle.closed {
+    background-image: url("../assets/hamburger_menu.svg");
+  }
+  .mobile-nav-toggle.open {
+    background-image: url("../assets/hamburger_close.svg");
+  }
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  position: fixed;
+  margin-top: 0;
+  padding: 20px 0px;
+  height: 1000px;
+  z-index: 1;
+}
+
+
+#nav a:hover {
+  background-color: rgba(255, 0, 255, 0.8);
+  color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.5),
+    0 0 80px rgba(255, 0, 255, 0.5), 0 0 160px rgba(255, 0, 255, 0.5);
+}
+
+#nav a.router-link-exact-active {
+  color: rgba(0, 255, 255, 1);
+}
+
+#nav a.router-link-exact-active:hover {
+  background-color: transparent;
+  box-shadow: 0 0 10px transparent, 0 0 40px transparent, 0 0 80px transparent,
+    0 0 160px transparent;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+body {
+  overflow-x: hidden;
+  background: #111111;
+}
+:root {
+  color-scheme: dark;
+}
+
+

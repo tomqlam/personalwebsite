@@ -1,70 +1,63 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <button
+      v-bind:class="[
+        isActive ? 'open' : 'closed',
+        true ? 'mobile-nav-toggle' : 'mobile-nav-toggle',
+      ]"
+      v-on:click="toggleMobileNav"
+    ></button>
+    <transition name="slide-fade">
+      <ul
+        id="primary-nav"
+        v-if="isActive || windowWidth > 560"
+        class="primary-nav flex"
+      >
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About</router-link>
+        <router-link to="/projects">Projects</router-link>
+        <router-link to="/contact">Contact</router-link>
+      </ul>
+    </transition>
+    <!-- <ul id="primary-nav" class="primary-nav flex">
+        <li>
+          <router-link to="/">Home</router-link>
+        </li>
+        <li>
+          <router-link to="/about">About</router-link>
+        </li>
+        <li>
+          <router-link to="/projects">Projects</router-link>
+        </li>
+        <li>
+          <router-link to="/contact">Contact</router-link>
+        </li>
+      </ul> -->
   </div>
   <router-view />
 </template>
+<script lang="ts" defer>
+import { defineComponent } from "vue";
+export default defineComponent({
+  el: "#app",
+  data() {
+    return {
+      isActive: false,
+      windowWidth: window.innerWidth,
+    };
+  },
+  methods: {
+    toggleMobileNav: function () {
+      this.isActive = !this.isActive;
+      console.log(this.isActive);
+    },
+  },
+  mounted() {
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth;
+    };
+  },
+});
+</script>
 
-<style>
-div {
-  height: 100vh;
-  width: 100vw;
-}
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px 0px;
-  background-color: #111111;
-  position: fixed;
-}
-
-#nav a {
-  font-weight: bold;
-  color: rgba(255, 0, 255, 1);
-  display: inline-block;
-  text-decoration: none;
-  padding: 15px 30px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 18px;
-  /* overflow: hidden; */
-  transition: 0.3s;
-}
-#nav a:hover {
-  background-color: rgba(255, 0, 255, 0.8);
-  color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.5),
-    0 0 80px rgba(255, 0, 255, 0.5), 0 0 160px rgba(255, 0, 255, 0.5);
-}
-#nav a.router-link-exact-active {
-  color: rgba(0, 255, 255, 1);
-}
-
-#nav a.router-link-exact-active:hover {
-  background-color: #111111;
-  color: rgba(0, 255, 255, 1);
-  border-radius: 5px;
-  box-shadow: 0 0 10px #111111, 0 0 40px #111111, 0 0 80px #111111,
-    0 0 160px #111111;
-}
-
-body,
-html {
-  padding: 0;
-  margin: 0;
-}
-body {
-  background-color: #111111;
-}
-:root {
-  color-scheme: dark;
-}
-</style>
+<style src="./styles/App.css"></style>

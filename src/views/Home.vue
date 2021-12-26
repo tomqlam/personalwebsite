@@ -11,16 +11,7 @@
 </template>
 
 <script lang="ts">
-export default {
-  beforeMount() {
-    const body = document.querySelector("body")!;
-    body.setAttribute("style", "background:#fff");
-  },
-  beforeUnmount() {
-    const body = document.querySelector("body")!;
-    body.setAttribute("style", "");
-  },
-};
+export default {};
 </script>
 
 <style scoped>
@@ -29,22 +20,21 @@ export default {
   justify-content: center;
   align-items: center;
   height: 0vh;
-  background: #111111;
 }
 .welcome {
   position: fixed;
-  top: 300px;
+  top: 15vh;
   margin-left: 0vw;
 }
 h1 {
-  font-size: 5rem;
+  font-size: 4vw;
   font-weight: bold;
   color: rgb(255, 255, 255);
   text-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.5),
     0 0 80px rgba(255, 0, 255, 0.5), 0 0 160px rgba(255, 0, 255, 0.5);
 }
 h2 {
-  font-size: 3rem;
+  font-size: 3vw;
   font-weight: bold;
   color: rgb(255, 255, 255);
   text-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.5),
@@ -54,7 +44,7 @@ h2 {
   top: 400px;
   position: fixed;
   margin-left: -150vw;
-  margin-top: 25vh;
+  margin-top: 0vh;
 }
 @keyframes rotate {
   from {
