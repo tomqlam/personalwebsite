@@ -19,10 +19,29 @@ div {
   transform: translateX(20px);
   opacity: 0;
 }
+
+.logo {
+  list-style-type: none;
+  margin: 0;
+  float: left;
+  background: rgba(40, 40, 40, 0.9);
+  /* display: block; */
+  line-height: 0;
+  padding: 1rem;
+  margin-top: -0.5rem;
+  border-radius: 0px 15px 15px 0px;
+
+}
+
+.logoimg {
+  width: 52px; 
+  height: 52px; 
+}
+
 .primary-nav {
   list-style-type: none;
   padding: 0;
-  margin-top: 0;
+  margin: 0;
   float: right;
   text-align: left;
   background: rgba(40, 40, 40, 0.9);
@@ -37,20 +56,24 @@ div {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(1.5rem);
   }
+  .logo {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(1.5rem);
+  }
 }
 
 #nav a {
   font-weight: bold;
   color: rgba(255, 0, 255, 1);
   text-decoration: none;
-  padding: 15px 20px;
+  padding: 15px 15px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 18px;
+  font-size: 1rem;
   /* overflow: hidden; */
   transition: 0.3s;
 }
-@media (min-width: 35em) {
+@media (min-width: 40em) {
   .primary-nav{
     padding: 1rem;
     margin-top: -0.5rem;
@@ -58,7 +81,7 @@ div {
   }
 }
 
-@media (max-width: 35em) {
+@media (max-width: 40em) {
   .primary-nav {
     --gap: 2em;
     position: fixed;
@@ -110,7 +133,7 @@ div {
 }
 
 
-#nav a:hover {
+#nav .primary-nav > a:hover {
   background-color: rgba(255, 0, 255, 0.8);
   color: #ffffff;
   border-radius: 5px;
@@ -118,14 +141,13 @@ div {
     0 0 80px rgba(255, 0, 255, 0.5), 0 0 160px rgba(255, 0, 255, 0.5);
 }
 
-#nav a.router-link-exact-active {
-  color: rgba(0, 255, 255, 1);
-}
-
-#nav a.router-link-exact-active:hover {
-  background-color: transparent;
-  box-shadow: 0 0 10px transparent, 0 0 40px transparent, 0 0 80px transparent,
-    0 0 160px transparent;
+#nav .primary-nav > a.router-link-exact-active {
+  /* color: rgba(0, 255, 255, 1); */
+  background-color: rgba(0, 255, 255, 0.8);
+  color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.5),
+    0 0 80px rgba(0, 255, 255, 0.5), 0 0 160px rgba(0, 255, 255, 0.5);
 }
 
 body,

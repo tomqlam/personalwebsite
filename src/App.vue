@@ -7,37 +7,25 @@
       ]"
       v-on:click="toggleMobileNav"
     ></button>
+    <ul class="logo">
+      <router-link to="/"
+        ><img src="./assets/Logo.svg" class="logoimg"
+      /></router-link>
+    </ul>
     <transition name="slide-fade">
-      <ul
-        id="primary-nav"
-        v-if="isActive || windowWidth > 560"
-        class="primary-nav flex"
-      >
+      <ul v-if="isActive || windowWidth > 640" class="primary-nav flex">
         <router-link to="/">Home</router-link>
         <router-link to="/about">About</router-link>
         <router-link to="/projects">Projects</router-link>
         <router-link to="/contact">Contact</router-link>
       </ul>
     </transition>
-    <!-- <ul id="primary-nav" class="primary-nav flex">
-        <li>
-          <router-link to="/">Home</router-link>
-        </li>
-        <li>
-          <router-link to="/about">About</router-link>
-        </li>
-        <li>
-          <router-link to="/projects">Projects</router-link>
-        </li>
-        <li>
-          <router-link to="/contact">Contact</router-link>
-        </li>
-      </ul> -->
   </div>
   <router-view />
 </template>
 <script lang="ts" defer>
 import { defineComponent } from "vue";
+import "animate.css";
 export default defineComponent({
   el: "#app",
   data() {
